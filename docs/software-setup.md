@@ -67,3 +67,58 @@ sudo nmtui
 8. Masuk ke bagian edit connection dan konfigurasi pengaturan wired connection menjadi statis dengan ip 192.168.123.xx, nilai xx bergantung pada nomor robot
 9. Pastikan anda sudah konfigurasi ip untuk ethernet pada pc/laptop anda. Caranya pergi ke menu Control Panel\Network and Internet\Network and Sharing Centre, lalu klik kanan pada bagian ethernet dan pilih properties, kemudian pilih ipv4 control dan klik properties, dan selanjutnya masukkan ip statis yang memiliki class yang sama dengan ip robot nantinya. Lalu save pengaturan anda
 10. Buka nomachine di pc/laptop anda dan masukkan ip robot pada koneksi baru, lalu coba sambungkan. Jika gagal maka ada kesalahan di konfigurasi nmtui pada robot. Ulang lagi step 8
+
+## Driver video ubuntu 20.04
+
+1. Buka terminator
+2. Masukkan perintah berikut ini
+```bash
+sudo apt update && sudo apt upgrade
+sudo apt install nano
+sudo apt-get install xserver-xorg-core
+sudo apt-get install xserver-xorg-video-dummy
+sudo apt-get install --reinstall xserver-xorg-input-all
+sudo nano /usr/share/X11/xorg.conf.d/xorg.conf
+```
+3. Masukkan baris program berikut
+```bash
+Section "Module"
+        
+    Disable     "dri"
+        SubSection  "extmod"
+            Option  "omit xfree86-dga"
+        EndSubSection
+    EndSection
+
+    Section "Device"
+        Identifier  "Tegra0"
+        Driver      "nvidia"
+        Option      "AllowEmptyInitialConfiguration" "true"
+    EndSection
+
+    Section "Monitor"
+       Identifier "DSI-0"
+       Option    "Ignore"
+    EndSection
+
+    Section "Screen"
+       Identifier    "Default Screen"
+       Monitor        "Configured Monitor"
+       Device        "Default Device"
+       SubSection "Display"
+           Depth    24
+           Virtual 1280 720 #optional resolution
+       EndSubSection
+    EndSection
+```
+4. Restart jetson
+
+## Install dependencies
+
+Jalankan perintah berikut ini
+```bash
+sudo apt-get install libncurses5-dev screen
+sudo apt-get install build-essential wget subversion cmake swig libreadline6-dev g++ lua5.1
+```
+
+## jejak
