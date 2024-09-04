@@ -5,16 +5,11 @@ Tuliskan langkah step-by-step dengan detail **disini**
 
 1. Buka terminal (CTRL + ALT + T)
 2. Ketikkan perintah berikut ini di terminal
-    ```bash
-    sudo apt update && sudo apt upgrade -y
-    ```
-3. Buat program Python seperti berikut
-    ```python
-    import numpy as np
 
-    def main():
-        print("Hello world")
-    
-    ```
+```bash
+sudo apt update && sudo apt upgrade -y
+```
+
+3. Buat program Python seperti berikut
 
 ## Platform Lain
