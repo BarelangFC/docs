@@ -137,7 +137,7 @@ sudo ln -s /usr/local/boost_1_47_0/boost boost
 cd –
 ```
 5. Jika proses instalan memiliki waktu tidak lebih dari 3 menit, maka dipastikan proses penginstalan anda telah gagal.
-6. Jika gagal maka download secara manual file boost [disini]()
+6. Jika gagal maka download secara manual file boost [disini](https://drive.google.com/drive/folders/1mASY3kszQpr9RsSgJzbuhznYQetVOChP?usp=sharing)
 7. Silahkan anda hapus folder boost yang ada di /usr/local dan pindahkan secara manual folder boost
 
 ## Download dan Install Lua program
@@ -222,5 +222,102 @@ open terminal
 sudo apt-get install python3-serial
 ```
 
+## Isolate cpu core 
+Buka terminal
+```bash
+sudo nano /boot/extlinux/extlinux.conf
+```
+Lalu isi bagian yang sesuai dengan lingkaran di foto ![alt text](5.jpg)
 
-## jejak
+Selanjutnya, reboot jetson
+
+## Taskset cpu for specific core
+Buka terminal dan jalankan
+```bash
+taskset -c <core> program
+```
+Untuk contohnya
+```bash
+taskset -c 0,1,2,3,4 ros2 run groot Groot
+```
+
+## Install libzmq, zmqpp, dan libsodium
+1. Untuk libsodium, download pada [web](https://download.libsodium.org/libsodium/releases/libsodium-1.0.18-stable.tar.gz) berikut sesuai dengan versi yang tertera
+2. Buka terminal dan masukkan perintah berikut
+```bash
+tar -xvzf libsodium-1.0.18-stable.tar.gz
+cd libsodium-stable/
+./configure 
+make && make check
+sudo make install
+sudo ldconfig
+cd
+```
+3. Jika ada terjadi error di awal, pindahkan terlebih dahulu file libsodium dari folder Downloads ke folder home
+4. Buka terminal dan masukkan perintah berikut
+```bash
+git clone https://github.com/zeromq/libzmq
+cd libzmq/
+./autogen.sh && ./configure && make -j 4
+sudo make check && sudo make install && sudo ldconfig
+./autogen.sh ./configure -with-libsodium && sudo make
+sudo make install
+sudo ldconfig
+cd
+```
+5. Di terminal yang lain masukkan perintah berikut
+```bash
+git clone https://github.com/zeromq/zmqpp.git
+cd zmqpp/
+sudo make
+sudo make check
+sudo make install
+sudo make installcheck
+cd
+```
+
+## Instalasi Ros2 Foxy dan colcon
+1. Untuk instalasi ROS2 Foxy silahkan merujuk ke [web](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+2. Untuk instalasi colcon silahkan ke [web](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html)
+
+## Instalasi library usb_cam
+Buka terminal
+```bash
+Sudo apt install ros-foxy-usb-cam
+```
+
+## Install library Adafruit-SSD1306
+Buka terminal
+```bash
+pip install Adafruit-SSD1306
+```
+
+## Install image_pipeline
+Buka terminal
+```bash
+Sudo apt install ros-foxy-image-pipeline
+```
+
+## Install BehaviorTreeV3_CPP dan Groot
+1. Untuk menginstall Behavior tree, buka terminal dan masukkan perintah berikut ini
+```bash
+sudo apt-get install libzmq3-dev libboost-dev
+sudo apt-get install ros-foxy-behaviortree-cpp-v3
+git clone --branch v3.8 https://github.com/BehaviorTree/BehaviorTree.CPP.git
+cd BehaviorTree.CPP
+mkdir build; cd build
+cmake ..
+make
+sudo make install
+```
+2. Untuk menginstall groot, buka terminal dan masukkan perintah berikut
+```bash
+sudo apt install qtbase5-dev libqt5svg5-dev libzmq3-dev libdw-dev
+git clone --recurse-submodules https://github.com/BehaviorTree/Groot.git
+cd Groot
+cmake -S . -B build
+cmake --build build
+```
+3. Masukkan dua folder ini ke workspace ROS2 anda dan compile dengan colcon build
+
+## End
