@@ -120,5 +120,107 @@ Jalankan perintah berikut ini
 sudo apt-get install libncurses5-dev screen
 sudo apt-get install build-essential wget subversion cmake swig libreadline6-dev g++ lua5.1
 ```
+## Download dan Install boost library
+1. Buka terminal dan ketikkan perintah berikut ini
+```bash
+sudo apt update
+mkdir BarelangFc_Library && cd BarelangFc_Library
+```
+2. Kemudian download file boost versi 1.85.0 [disini](https://archives.boost.io/release/1.85.0/source/boost_1_85_0.tar.gz)
+3. Pindahkan hasil download ke folder BarelangFc_Library
+4. Kembali ke terminal dan masukkan perintah berikut
+```bash
+tar -xvf boost_1_85_0.tar.gz
+sudo mv boost_1_85_0 /usr/local/
+cd /usr/local/include
+sudo ln -s /usr/local/boost_1_47_0/boost boost 
+cd –
+```
+5. Jika proses instalan memiliki waktu tidak lebih dari 3 menit, maka dipastikan proses penginstalan anda telah gagal.
+6. Jika gagal maka download secara manual file boost [disini]()
+7. Silahkan anda hapus folder boost yang ada di /usr/local dan pindahkan secara manual folder boost
+
+## Download dan Install Lua program
+Buka terminal dan ketikkan perintah berikut
+```bash
+cd BarelangFc_Library
+wget http://www.lua.org/ftp/lua-5.1.4.tar.gz
+tar -xvf lua-5.1.4.tar.gz
+cd lua-5.1.4
+make clean
+make linux
+sudo make install
+cd ..
+sudo apt install git
+sudo apt install luarocks
+sudo luarocks install luasocket
+```
+Download file sesuai versi dan pastikan berada di folder BarelangFc_Library
+
+## Install open-source program
+Buka terminal dan ketikkan perintah berikut
+```bash
+cd BarelangFc_Library
+git clone https://github.com/BarelangFC/BarelangFC-Setup.git
+sudo apt-get install unzip
+unzip UPennalizers-master.zip
+cd UPennalizers-master
+cd Lib
+make clean
+make setup_op
+sudo rm /lib/udev/rules.d/95-upower-wup.rules
+```
+
+## Persistance USB
+Catatan: Pada bagian ini, semua sub-pengendali robot harus aktif dan harus terhubung ke komputer
+
+jalankan perintah berikut di terminal (Ctrl+Alt+T) satu per satu:
+
+Identifikasi serial sub-pengontrol untuk setiap ttyUSB0 dan ttyUSB1:
+
+```bash
+udevadm info -a -n /dev/ttyUSB0 | grep '{serial}' | head -n1
+udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1
+cd /etc/udev/rules.d
+sudo nano BarelangFC.rules
+```
+tambahkan kode berikut ini:
+```bash
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="AH03PJVL", SYMLINK+="CM730" // all value is unique
+
+SUBSYSTEM=="tty", ATTRS{serial}=="0000:00:14.0", SYMLINK+="strategyUSB" // all value is unique
+```
+
+Jalankan perintah berikut ini di terminal (Ctrl+Alt+T) satu per satu:
+```bash
+sudo usermod -a -G dialout $USER
+reboot
+```
+Aturlah timer latensi permanen (ubuntu 18 dan yang lebih baru)
+```bash
+sudo su
+cd /etc/udev/rules.d
+touch BFCLatency.rules
+echo ACTION==\"add\", SUBSYSTEM==\"usb-serial\", DRIVER==\"ftdi_sio\", ATTR{latency_timer}=\"1\" > BFCLatency.rules
+sudo udevadm control --reload-rules
+sudo udevadm trigger --action=add
+```
+
+## Setting UART antara jetson dan tombol
+Buka terminal
+```bash
+git clone https://github.com/JetsonHacksNano/UARTDemo
+cd UARTDemo
+systemctl stop nvgetty
+systemctl disable nvgetty
+udevadm trigger
+sudo reboot or sudo shutdown -P now
+```
+
+open terminal
+```bash
+sudo apt-get install python3-serial
+```
+
 
 ## jejak
