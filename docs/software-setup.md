@@ -230,7 +230,7 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger --action=add
 ```
 
-### Setting Port UART Jetson
+### 7. Setting Port UART Jetson
 
 ```bash
 git clone https://github.com/JetsonHacksNano/UARTDemo
@@ -245,7 +245,7 @@ sudo reboot or sudo shutdown -P now
 sudo apt-get install python3-serial
 ```
 
-### Setting CPU Isolation
+### 8. Setting CPU Isolation
 
 ```bash
 sudo nano /boot/extlinux/extlinux.conf
@@ -269,7 +269,7 @@ taskset -c <core> program
 taskset -c 0,1,2,3,4 ros2 run groot Groot
 ```
 
-### 7. Install libzmq, zmqpp, dan libsodium
+### 9. Install libzmq, zmqpp, dan libsodium
 
 ```bash
 wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18-stable.tar.gz
@@ -307,7 +307,7 @@ sudo make installcheck
 cd
 ```
 
-### 7. Install ROS2 Foxy dan Colcon
+### 10. Install ROS2 Foxy dan Colcon
 
 Untuk instalasi ROS2 Foxy silahkan merujuk ke [web](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 
@@ -331,7 +331,7 @@ Install image_pipeline
 Sudo apt install ros-foxy-image-pipeline
 ```
 
-### 8. Install BehaviorTreeV3_CPP dan Groot
+### 11. Install BehaviorTreeV3_CPP dan Groot
 
 ```bash
 sudo apt-get install libzmq3-dev libboost-dev
