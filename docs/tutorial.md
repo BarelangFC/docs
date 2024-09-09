@@ -1,14 +1,17 @@
-# Tutorial
+# Tutorial Tuning dan Konfigurasi Robot
 
-## 1. Tutorial Cara Set Static Device Name (Udev)
+## 1. Tutorial Tuning Walking
 
-Langkah-langkah step by stepny adalah sebagai berikut :
+TODO: Choirul
 
-1. Buka terminal (CTRL + ALT + T)
-2. Ketikkan perintah berikut
+## 2. Tutorial Tuning Tendangan
 
-```bash
-sudo apt update && sudo apt upgrade -y
-```
+TODO: Dimas
 
-## 2. Tutorial Cara Membuat Autotun Script di Bash
+## 3. Tutorial Kalibrasi Kamera
+
+TODO: Dani
+
+## 4. Tutorial Kalibrasi Odometry
+
+TODO: Choirul

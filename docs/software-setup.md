@@ -2,76 +2,95 @@
 
 ## Jetson Xavier NX - Ubuntu 20.04
 
-1. Buka terminal (CTRL + ALT + T)
-2. Ketikkan perintah berikut ini di terminal
+### 1. Instalasi dependencies package
+
+Update system sebelum melakukan install package dan dependencies
+
 ```bash
 sudo apt update && sudo apt upgrade -y
 ```
-3. Install Python3 pada jetson
+
+Install Python PIP
+
 ```bash
 sudo apt install python3-pip
 ```
-4. install jtop untuk pengaturan internal jetson
+
+Install jtop untuk pengaturan internal jetson
+
 ```bash
 sudo pip3 install -U jetson-stats
 ```
-5. Reboot jetson 
+
+Reboot jetson 
+
 ```bash
 sudo reboot
 ```
-6. Buka terminal dengan shortcut ctrl + alt + t
-7. Ketikkan perintah berikut ini di terminal
+
+**Setting Fan Speed Jetson**
+
 ```bash
 jtop
 ```
-8. Pergi ke menu control atau ctrl lalu atur putaran kipas menjadi manual dan konfigurasikan kecepatan kipas hingga mencapai maksimal
-9. Ketikkan perintah berikut ini di terminal untuk menginstal terminator
+
+Buka menu control atau ctrl lalu atur putaran kipas menjadi manual dan konfigurasikan kecepatan kipas hingga mencapai maksimal
+
+Terminator
+
 ```bash
 sudo apt update && sudo apt install terminator
 ```
-10. Buka bagian setting pada ubuntu 20.04
-11. Masuk ke bagian power dan pastikan mode sleep nonaktif atau mode never sleep
-12. Kemudian masuk ke bagian sharing dan pastikan bagian sharing monitor aktif dan tanpa password encription
-13. Kemudian masuk ke bagian privacy dan pastikan bagian black screen turn off, nonaktifkan screen lock dan suspend lock, dan turn off automatic screen lock delay
-14. Masuk ke bagian user dan pastikan bahwa pengaturan login tidak membutuhkan password
-15. Restart device
 
-## Mode lxde
-1. Buka terminator ubuntu
-2. Ketik perintah berikut ini
+**Konfigurasi di Jetson**
+
+1. Buka bagian setting pada ubuntu 20.04
+2. Masuk ke bagian power dan pastikan mode sleep nonaktif atau mode never sleep
+3. Kemudian masuk ke bagian sharing dan pastikan bagian sharing monitor aktif dan tanpa password encription
+4. Kemudian masuk ke bagian privacy dan pastikan bagian black screen turn off, nonaktifkan screen lock dan suspend lock, dan turn off automatic screen lock delay
+5. Masuk ke bagian user dan pastikan bahwa pengaturan login tidak membutuhkan password
+6. Restart device
+
+### 2. Setup LXDE Desktop Environment
+
 ```bash
 sudo apt install lxde
 ```
-3. Pastikan memilih mode lightdm
-4. Restart device
-5. Pada saat tampilan memasukkan password, pilih tampilan utama lxde
-6. Setelah itu, masuk ke pengaturan xscreensaver di sebelah kiri bawah, pastikan mode screenxsaver berada pada posisi disable
 
-## Konfigurasi Nomachine pada jetson
-1. Buka terminator
-2. Ketikkan perintah berikut ini
+* Pastikan memilih mode lightdm
+* Restart device
+* Pada saat tampilan memasukkan password, pilih tampilan utama lxde
+* Setelah itu, masuk ke pengaturan xscreensaver di sebelah kiri bawah, pastikan mode screenxsaver berada pada posisi disable
+
+### 3. Konfigurasi NoMachine pada Jetson
+
+Install No Machine
+
 ```bash
 sudo apt update && sudo apt upgrade
 sudo apt install wget
 wget https://www.nomachine.com/free/arm/v8/deb -O nomachine.deb
 sudo dpkg -i nomachine.deb
 ```
-3. Jika bagian baris terakhir gagal dijalankan, maka masuk ke direktori Downloads dan masukkan command sebelumnya
-4. Install nomachine di perangkat pc/laptop anda
-5. Jika sudah selesai, matikan device dan pasang ke dalam tubuh robot
-6. Jika sudah terinstall di tubuh robot, nyalakan jetson dan sambungkan kabel lan pada laptop/pc ke jetson
-7. Buka terminator dan ketik perintah berikut
+
+* Jika bagian baris terakhir gagal dijalankan, maka masuk ke direktori Downloads dan masukkan command sebelumnya
+* Install nomachine di perangkat pc/laptop anda
+* Jika sudah selesai, matikan device dan pasang ke dalam tubuh robot
+* Jika sudah terinstall di tubuh robot, nyalakan jetson dan sambungkan kabel lan pada laptop/pc ke jetson
+* Buka terminator dan ketik perintah berikut
+
+Pengaturan WiFi
+
 ```bash
 sudo nmtui
 ```
-8. Masuk ke bagian edit connection dan konfigurasi pengaturan wired connection menjadi statis dengan ip 192.168.123.xx, nilai xx bergantung pada nomor robot
-9. Pastikan anda sudah konfigurasi ip untuk ethernet pada pc/laptop anda. Caranya pergi ke menu Control Panel\Network and Internet\Network and Sharing Centre, lalu klik kanan pada bagian ethernet dan pilih properties, kemudian pilih ipv4 control dan klik properties, dan selanjutnya masukkan ip statis yang memiliki class yang sama dengan ip robot nantinya. Lalu save pengaturan anda
-10. Buka nomachine di pc/laptop anda dan masukkan ip robot pada koneksi baru, lalu coba sambungkan. Jika gagal maka ada kesalahan di konfigurasi nmtui pada robot. Ulang lagi step 8
 
-## Driver video ubuntu 20.04
+* Masuk ke bagian edit connection dan konfigurasi pengaturan wired connection menjadi statis dengan ip 192.168.123.xx, nilai xx bergantung pada nomor robot
+* Pastikan anda sudah konfigurasi ip untuk ethernet pada pc/laptop anda. Caranya pergi ke menu Control Panel\Network and Internet\Network and Sharing Centre, lalu klik kanan pada bagian ethernet dan pilih properties, kemudian pilih ipv4 control dan klik properties, dan selanjutnya masukkan ip statis yang memiliki class yang sama dengan ip robot nantinya. Lalu save pengaturan anda
+* Buka nomachine di pc/laptop anda dan masukkan ip robot pada koneksi baru, lalu coba sambungkan. Jika gagal maka ada kesalahan di konfigurasi nmtui pada robot. Ulang lagi step 8
 
-1. Buka terminator
-2. Masukkan perintah berikut ini
+### 3. Setup Driver Video
+
 ```bash
 sudo apt update && sudo apt upgrade
 sudo apt install nano
@@ -80,7 +99,9 @@ sudo apt-get install xserver-xorg-video-dummy
 sudo apt-get install --reinstall xserver-xorg-input-all
 sudo nano /usr/share/X11/xorg.conf.d/xorg.conf
 ```
-3. Masukkan baris program berikut
+
+Masukkan baris program berikut
+
 ```bash
 Section "Module"
         
@@ -111,37 +132,39 @@ Section "Module"
        EndSubSection
     EndSection
 ```
-4. Restart jetson
 
-## Install dependencies
+Restart Jetson
 
-Jalankan perintah berikut ini
+### 4. Install Dependencies & Library
+
+Install Packages
+
 ```bash
 sudo apt-get install libncurses5-dev screen
 sudo apt-get install build-essential wget subversion cmake swig libreadline6-dev g++ lua5.1
 ```
-## Download dan Install boost library
-1. Buka terminal dan ketikkan perintah berikut ini
+
+Install Boost
+
 ```bash
 sudo apt update
 mkdir BarelangFc_Library && cd BarelangFc_Library
-```
-2. Kemudian download file boost versi 1.85.0 [disini](https://archives.boost.io/release/1.85.0/source/boost_1_85_0.tar.gz)
-3. Pindahkan hasil download ke folder BarelangFc_Library
-4. Kembali ke terminal dan masukkan perintah berikut
-```bash
+wget https://archives.boost.io/release/1.85.0/source/boost_1_85_0.tar.gz
 tar -xvf boost_1_85_0.tar.gz
 sudo mv boost_1_85_0 /usr/local/
 cd /usr/local/include
 sudo ln -s /usr/local/boost_1_47_0/boost boost 
 cd –
 ```
-5. Jika proses instalan memiliki waktu tidak lebih dari 3 menit, maka dipastikan proses penginstalan anda telah gagal.
-6. Jika gagal maka download secara manual file boost [disini](https://drive.google.com/drive/folders/1mASY3kszQpr9RsSgJzbuhznYQetVOChP?usp=sharing)
-7. Silahkan anda hapus folder boost yang ada di /usr/local dan pindahkan secara manual folder boost
 
-## Download dan Install Lua program
-Buka terminal dan ketikkan perintah berikut
+Jika instalasi memiliki waktu tidak lebih dari 3 menit, maka dipastikan proses penginstalan anda telah gagal.
+
+Jika gagal maka download secara manual file boost [disini](https://drive.google.com/drive/folders/1mASY3kszQpr9RsSgJzbuhznYQetVOChP?usp=sharing)
+
+Hapus folder boost yang ada di /usr/local dan pindahkan secara manual folder boost
+
+Install Lua
+
 ```bash
 cd BarelangFc_Library
 wget http://www.lua.org/ftp/lua-5.1.4.tar.gz
@@ -155,10 +178,9 @@ sudo apt install git
 sudo apt install luarocks
 sudo luarocks install luasocket
 ```
-Download file sesuai versi dan pastikan berada di folder BarelangFc_Library
 
-## Install open-source program
-Buka terminal dan ketikkan perintah berikut
+Install Uppenalizers-framework
+
 ```bash
 cd BarelangFc_Library
 git clone https://github.com/BarelangFC/BarelangFC-Setup.git
@@ -171,10 +193,9 @@ make setup_op
 sudo rm /lib/udev/rules.d/95-upower-wup.rules
 ```
 
-## Persistance USB
-Catatan: Pada bagian ini, semua sub-pengendali robot harus aktif dan harus terhubung ke komputer
+### 5. Konfigurasi Persistance USB
 
-jalankan perintah berikut di terminal (Ctrl+Alt+T) satu per satu:
+**Catatan** : Pada bagian ini, semua sub-pengendali robot harus aktif dan harus terhubung ke komputer.
 
 Identifikasi serial sub-pengontrol untuk setiap ttyUSB0 dan ttyUSB1:
 
@@ -184,19 +205,22 @@ udevadm info -a -n /dev/ttyUSB1 | grep '{serial}' | head -n1
 cd /etc/udev/rules.d
 sudo nano BarelangFC.rules
 ```
-tambahkan kode berikut ini:
+
+Tambahkan kode berikut ini:
+
 ```bash
 SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6001", ATTRS{serial}=="AH03PJVL", SYMLINK+="CM730" // all value is unique
 
 SUBSYSTEM=="tty", ATTRS{serial}=="0000:00:14.0", SYMLINK+="strategyUSB" // all value is unique
 ```
 
-Jalankan perintah berikut ini di terminal (Ctrl+Alt+T) satu per satu:
 ```bash
 sudo usermod -a -G dialout $USER
 reboot
 ```
-Aturlah timer latensi permanen (ubuntu 18 dan yang lebih baru)
+
+### 6. Konfigurasi Latency Timer
+
 ```bash
 sudo su
 cd /etc/udev/rules.d
@@ -206,8 +230,8 @@ sudo udevadm control --reload-rules
 sudo udevadm trigger --action=add
 ```
 
-## Setting UART antara jetson dan tombol
-Buka terminal
+### Setting Port UART Jetson
+
 ```bash
 git clone https://github.com/JetsonHacksNano/UARTDemo
 cd UARTDemo
@@ -217,34 +241,38 @@ udevadm trigger
 sudo reboot or sudo shutdown -P now
 ```
 
-open terminal
 ```bash
 sudo apt-get install python3-serial
 ```
 
-## Isolate cpu core 
-Buka terminal
+### Setting CPU Isolation
+
 ```bash
 sudo nano /boot/extlinux/extlinux.conf
 ```
-Lalu isi bagian yang sesuai dengan lingkaran di foto ![alt text](5.jpg)
+
+Lalu isi bagian yang sesuai dengan lingkaran di gambar
+
+![alt text](./images/isolate-cpu.jpg)
 
 Selanjutnya, reboot jetson
 
-## Taskset cpu for specific core
-Buka terminal dan jalankan
+Menjalankan program dengan prioritas CPU tertentu
+
 ```bash
 taskset -c <core> program
 ```
-Untuk contohnya
+
+**Contohnya**
+
 ```bash
 taskset -c 0,1,2,3,4 ros2 run groot Groot
 ```
 
-## Install libzmq, zmqpp, dan libsodium
-1. Untuk libsodium, download pada [web](https://download.libsodium.org/libsodium/releases/libsodium-1.0.18-stable.tar.gz) berikut sesuai dengan versi yang tertera
-2. Buka terminal dan masukkan perintah berikut
+### 7. Install libzmq, zmqpp, dan libsodium
+
 ```bash
+wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.18-stable.tar.gz
 tar -xvzf libsodium-1.0.18-stable.tar.gz
 cd libsodium-stable/
 ./configure 
@@ -253,8 +281,11 @@ sudo make install
 sudo ldconfig
 cd
 ```
-3. Jika ada terjadi error di awal, pindahkan terlebih dahulu file libsodium dari folder Downloads ke folder home
-4. Buka terminal dan masukkan perintah berikut
+
+Jika ada terjadi error di awal, pindahkan terlebih dahulu file libsodium dari folder Downloads ke folder home
+
+Buka terminal dan masukkan perintah berikut
+
 ```bash
 git clone https://github.com/zeromq/libzmq
 cd libzmq/
@@ -265,7 +296,7 @@ sudo make install
 sudo ldconfig
 cd
 ```
-5. Di terminal yang lain masukkan perintah berikut
+
 ```bash
 git clone https://github.com/zeromq/zmqpp.git
 cd zmqpp/
@@ -276,30 +307,32 @@ sudo make installcheck
 cd
 ```
 
-## Instalasi Ros2 Foxy dan colcon
-1. Untuk instalasi ROS2 Foxy silahkan merujuk ke [web](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
-2. Untuk instalasi colcon silahkan ke [web](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html)
+### 7. Install ROS2 Foxy dan Colcon
 
-## Instalasi library usb_cam
-Buka terminal
+Untuk instalasi ROS2 Foxy silahkan merujuk ke [web](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+
+Untuk instalasi colcon silahkan ke [web](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Colcon-Tutorial.html)
+
+Instalasi ROS2 package usb_cam
+
 ```bash
 Sudo apt install ros-foxy-usb-cam
 ```
 
-## Install library Adafruit-SSD1306
-Buka terminal
+Install library Adafruit-SSD1306
+
 ```bash
 pip install Adafruit-SSD1306
 ```
 
-## Install image_pipeline
-Buka terminal
+Install image_pipeline
+
 ```bash
 Sudo apt install ros-foxy-image-pipeline
 ```
 
-## Install BehaviorTreeV3_CPP dan Groot
-1. Untuk menginstall Behavior tree, buka terminal dan masukkan perintah berikut ini
+### 8. Install BehaviorTreeV3_CPP dan Groot
+
 ```bash
 sudo apt-get install libzmq3-dev libboost-dev
 sudo apt-get install ros-foxy-behaviortree-cpp-v3
@@ -310,7 +343,9 @@ cmake ..
 make
 sudo make install
 ```
-2. Untuk menginstall groot, buka terminal dan masukkan perintah berikut
+
+Untuk menginstall groot, buka terminal dan masukkan perintah berikut
+
 ```bash
 sudo apt install qtbase5-dev libqt5svg5-dev libzmq3-dev libdw-dev
 git clone --recurse-submodules https://github.com/BehaviorTree/Groot.git
@@ -318,6 +353,5 @@ cd Groot
 cmake -S . -B build
 cmake --build build
 ```
-3. Masukkan dua folder ini ke workspace ROS2 anda dan compile dengan colcon build
 
-## End
+Masukkan dua folder ini ke workspace ROS2 anda dan compile dengan colcon build
