@@ -56,7 +56,7 @@ Source: https://jetsonhacks.com/nvidia-jetson-xavier-nx-gpio-header-pinout/
 ![alt text](./images/opencr_pinout.png)
 
 ### OpenCr Wiring Connections
-![alt text](./images/OpenCR-Wiring.png)
+![alt text](./images/opencr_wiring.png)
 
 #### 1. Wiring Diagram Robot
 #### 2. Servo Cable List
