@@ -42,7 +42,7 @@ Berikut adalah langkah-langkah merakit robot humanoid dari awal hingga akhir:
 * setelah kaki kiri selesai dirakit, ulangi hal yang sama untuk merakit kaki kanan robot, perhatikan ID yang sudah tertera urutannya dan arah titik nol horn servo yang sudah disebutkan pada langkah langkah tersebut.
 ![mechanical](./images/mechanical/footassembly.png)
 
-### 2. Assembly Body Robot
+### 3. Assembly Body Robot
 * Pertama, Hubungkan **Base Battery** dengan motor **servo MX-64 ID 7 & 8** menggunakan 8 pcs baut **M2.5 x 8**.
   ![mechanical](./images/mechanical/step14.png)
 * Kemudian, Hubungkan kedua horn motor servo dengan urutan seperti di gambar, **Home Bearing** Ke Servo menggunakan 4 pcs baut **M2.5 x 6**, Kemudian**Bearing AXK2542** dan **Washer AXK 2542** untuk mengisi Gap dengan **Spacer Bearing Hip**, Kemudian kunci dengan 4 pcs baut **M2.5 x 18** dan **Locknut M2.5** .
@@ -94,7 +94,7 @@ Berikut adalah langkah-langkah merakit robot humanoid dari awal hingga akhir:
 * Maka hasil akhir pada step Assembly Body Robot akan seperti gambar berikut.
   ![mechanical](./images/mechanical/step37.png)
    
-### 3. Assembly Tangan Robot
+### 4. Assembly Tangan Robot
 * Hubungkan Part **Hand Derlin** ke part **Hand Join** menggunkan 6 pcs baut **M2.5 x 8 dan Locknut**.
   ![mechanical](./images/mechanical/step38.png)
 * Kemudian, hubungkan part **Hand Join dengan** dengan part **FR05 Hand Join** Menggunakan 4 pcs baut **M2.5 x 8 & Locknut**.
@@ -118,7 +118,7 @@ Berikut adalah langkah-langkah merakit robot humanoid dari awal hingga akhir:
 * Lakukan Hal yang sama seperti langkah langkah sebelumnya, maka hasil akhir dari Assembly Tangan Robot akan seperti pada gambar berikut.
   ![mechanical](./images/mechanical/step48.png)
    
-### 4. Assembly Kepala Robot
+### 5. Assembly Kepala Robot
 * Siapkan motor **Servo MX-28 ID 20** kemudian pasangkan salah satu sisi horn dengan **Cam Bracket Sisi** menggunakan 5 pcs baut **M2 x 5**.
   ![mechanical](./images/mechanical/step49.png)
 * Siapkan **Camera Econ** kemudian hubungkan dengan part **Cam Bracket Base** menggunakan 4 pcs baut **M2 x 6**.
@@ -134,7 +134,7 @@ Berikut adalah langkah-langkah merakit robot humanoid dari awal hingga akhir:
 * Terakhir memasang part **Head Bracket sisi** pada sisi lain untuk mengunci part **Lens Protection** dan kunci ke part **Head Cover** menggunakan 2 pcs baut **M2.5 x 8**, maka hasil akhir dari Assembly Kepala Robot akan seperti gambar berikut.
   ![mechanical](./images/mechanical/step55.png)
    
-### 5. Assembly Robot
+### 6. Assembly Robot
 * Setelah Assembly Kaki dan Badan Selesai, maka Hubungkan part **Hip Bracket Sisi** dengan **Ancle Bracket Base** menggunakan 4 pcs baut **M2.5 x 8** dan Loctite Thread Lock. lakukan pada kedua sisi kaki
   ![mechanical](./images/mechanical/step56.png)
 * Setelah Assembly Tangan dan Body Selesai, maka hubungkan part **Home Bearing** dengan part **Angled Actuator Bracket Base** menggunakan 4 pcs baut **M2.5 x 8** dan Loctite Thread Lock.
