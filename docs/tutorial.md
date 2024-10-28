@@ -13,20 +13,21 @@
   
 - masuk ke folder Player.
   
-  ```bash
-  cd ~/bfc_ros2/src/Player/
-  ./kill.sh
-  lua run_dcm.lua
-  ```
+```bash
+cd ~/bfc_ros2/src/Player/
+./kill.sh
+lua run_dcm.lua
+```
 
 - Hidupkan OpenCR, tunggu sampai lampu indikator servo menyala.
 
 - Jika lampu indikator servo sudah menyala dan terminal menampilkan angka, maka periksa kabel servo pada ID tersebut.
   
 - Jalankan setup tuning
-  ```bash
-  lua run_setup.lua
-  ``` 
+
+```bash
+lua run_setup.lua
+``` 
 
 - Tekan "8" untuk posisi berdiri. Angkat robot untuk membantunya berdiri.
 
@@ -34,12 +35,12 @@
 
 - Jika pergerakan robot tidak lancar ketika berdiri, periksa kembali kabel servo yang tidak tersambung dengan menjalankan perintah:
   
-  ```bash
-  cd ~/bfc_ros2/src/Player/Lib/
-  lua test_dynamixel.lua
-  ```
+```bash
+cd ~/bfc_ros2/src/Player/Lib/
+lua test_dynamixel.lua
+```
 
-    Jika ada angka yang tidak muncul antara 1-20 serta angka 200, maka periksa kembali kabel servo pada ID yang hilang tersebut.
+Jika ada angka yang tidak muncul antara 1-20 serta angka 200, maka periksa kembali kabel servo pada ID yang hilang tersebut.
 
 ### b. Tuning V
 
@@ -71,21 +72,21 @@
 
 - Tekan
   
-  "i" untuk menambah kecepatan ketika maju,
+    "i" untuk menambah kecepatan ketika maju,
   
-  "," untuk menambah kecepatan ketika mundur,
+    "," untuk menambah kecepatan ketika mundur,
   
-  ":" untuk menambah kecepatan ketika jalan ke samping kanan,
+    ":" untuk menambah kecepatan ketika jalan ke samping kanan,
 
-  "h" untuk menambah kecepatan ketika jalan ke samping kiri,
+    "h" untuk menambah kecepatan ketika jalan ke samping kiri,
 
-  "l" untuk menambah kecepatan ketika memutar ke kanan,
+    "l" untuk menambah kecepatan ketika memutar ke kanan,
 
-  "j" untuk menambah kecepatan ketika memutar ke kiri,
+    "j" untuk menambah kecepatan ketika memutar ke kiri,
 
-  "k" untuk mengembalikan semua nilai kecepatan menjadi 0, dan
+    "k" untuk mengembalikan semua nilai kecepatan menjadi 0, dan
 
-  "8" untuk berhenti.
+    "8" untuk berhenti.
 
 - Jika pergerakan robot ketika jalan kurang stabil, anda bisa mengubah nilai parameter yang ada di beberapa file diantaranya:
   
@@ -97,13 +98,13 @@
 
 - Tuning jalan dapat dikatakan berhasil apabila:
   
-  a. Ketika berdiri, posisi badan robot seimbang.
+    a. Ketika berdiri, posisi badan robot seimbang.
   
-  b. Ketika jalan ditempat, robot tidak berpindah dari posisi awal.
+    b. Ketika jalan ditempat, robot tidak berpindah dari posisi awal.
 
-  c. Ketika dilakukan uji coba sebanyak 20 kali bolak-balik, robot berjalan lurus dan tidak terjatuh sekalipun.
+    c. Ketika dilakukan uji coba sebanyak 20 kali bolak-balik, robot berjalan lurus dan tidak terjatuh sekalipun.
 
-  d. Ketika berjalan, robot mampu menahan sedikit tekanan baik dari depan maupun belakang tanpa terjatuh.
+    d. Ketika berjalan, robot mampu menahan sedikit tekanan baik dari depan maupun belakang tanpa terjatuh.
 
 - Setelah selesai melakukan tuning tendang, salin program yang ada didalam file bfc_ros2/src/Player/run_setup.lua ke dalam file bfc_ros2/src/Player/walk_server.lua.
 
