@@ -50,10 +50,13 @@ Jika ada angka yang tidak muncul antara 1-20 serta angka 200, maka periksa kemba
 
 - Tekan:
   
-  - "1" / "2" untuk berpindah ke servo sebelumnya atau setelahnya.
-  - "w" / "x" untuk menggerakkan servo pada kaki kanan.
-  - "a" / "d" untuk menggerakkan servo pada kaki kiri.
-  - "s"       untuk mengembalikan posisi servo ke posisi awal.
+    "1" / "2" untuk berpindah ke servo sebelumnya atau setelahnya.
+    
+    "w" / "x" untuk menggerakkan servo pada kaki kanan.
+    
+    "a" / "d" untuk menggerakkan servo pada kaki kiri.
+    
+    "s"       untuk mengembalikan posisi servo ke posisi awal.
 
 - Luruskan semua servo kaki yang miring dan sejajarkan dengan kaki sebelahnya.
 
@@ -68,21 +71,28 @@ Jika ada angka yang tidak muncul antara 1-20 serta angka 200, maka periksa kemba
 - Tekan "9" untuk jalan ditempat,
 
 - Tekan:
-  
-  - "i" untuk menambah kecepatan ketika maju.
-  - "," untuk menambah kecepatan ketika mundur.
-  - ":" untuk menambah kecepatan ketika jalan ke samping kanan.
-  - "h" untuk menambah kecepatan ketika jalan ke samping kiri.
-  - "l" untuk menambah kecepatan ketika memutar ke kanan.
-  - "j" untuk menambah kecepatan ketika memutar ke kiri.
-  - "k" untuk mengembalikan semua nilai kecepatan menjadi 0.
-  - "8" untuk berhenti.
+    
+    "i" untuk menambah kecepatan ketika maju.
+    
+    "," untuk menambah kecepatan ketika mundur.
+    
+    ":" untuk menambah kecepatan ketika jalan ke samping kanan.
+    
+    "h" untuk menambah kecepatan ketika jalan ke samping kiri.
+    
+    "l" untuk menambah kecepatan ketika memutar ke kanan.
+    
+    "j" untuk menambah kecepatan ketika memutar ke kiri.
+    
+    "k" untuk mengembalikan semua nilai kecepatan menjadi 0.
+    
+    "8" untuk berhenti.
 
 - Jika pergerakan robot ketika jalan kurang stabil, anda bisa mengubah nilai parameter yang ada di beberapa file diantaranya:
-  
-  - bfc_ros2/src/Player/run_setup.lua
-
-  - bfc_ros2/src/Player/Config/Walk/Config_OP_Walk.lua
+    
+    bfc_ros2/src/Player/run_setup.lua
+    
+    bfc_ros2/src/Player/Config/Walk/Config_OP_Walk.lua
 
 - Jika sekiranya pergerakan robot ketika jalan sudah stabil, anda dapat menguji coba dengan menjalankan robot dengan jarak 9 meter untuk jalan maju, dan jarak 6 meter untuk jalan samping. Lakukan uji coba tersebut sebanyak 20 kali bolak-balik.
 
