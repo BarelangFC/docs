@@ -27,7 +27,7 @@ lua run_dcm.lua
 
 ```bash
 lua run_setup.lua
-``` 
+```
 
 - Tekan "8" untuk posisi berdiri. Angkat robot untuk membantunya berdiri.
 
@@ -48,15 +48,12 @@ Jika ada angka yang tidak muncul antara 1-20 serta angka 200, maka periksa kemba
   
 - Periksa servo pada kaki yang miring atau tidak sejajar dengan servo pada kaki sebelahnya.
 
-- Tekan :
-
-    "1" / "2" untuk berpindah ke servo sebelumnya atau setelahnya.
-
-    "w" / "x" untuk menggerakkan servo pada kaki kanan
-    
-    "a" / "d" untuk menggerakkan servo pada kaki kiri.
-    
-    "s"       untuk mengembalikan posisi servo ke posisi awal.
+- Tekan:
+  
+  - "1" / "2" untuk berpindah ke servo sebelumnya atau setelahnya.
+  - "w" / "x" untuk menggerakkan servo pada kaki kanan.
+  - "a" / "d" untuk menggerakkan servo pada kaki kiri.
+  - "s"       untuk mengembalikan posisi servo ke posisi awal.
 
 - Luruskan semua servo kaki yang miring dan sejajarkan dengan kaki sebelahnya.
 
@@ -70,23 +67,16 @@ Jika ada angka yang tidak muncul antara 1-20 serta angka 200, maka periksa kemba
 
 - Tekan "9" untuk jalan ditempat,
 
-- Tekan
+- Tekan:
   
-    "i" untuk menambah kecepatan ketika maju,
-  
-    "," untuk menambah kecepatan ketika mundur,
-  
-    ":" untuk menambah kecepatan ketika jalan ke samping kanan,
-
-    "h" untuk menambah kecepatan ketika jalan ke samping kiri,
-
-    "l" untuk menambah kecepatan ketika memutar ke kanan,
-
-    "j" untuk menambah kecepatan ketika memutar ke kiri,
-
-    "k" untuk mengembalikan semua nilai kecepatan menjadi 0, dan
-
-    "8" untuk berhenti.
+  - "i" untuk menambah kecepatan ketika maju.
+  - "," untuk menambah kecepatan ketika mundur.
+  - ":" untuk menambah kecepatan ketika jalan ke samping kanan.
+  - "h" untuk menambah kecepatan ketika jalan ke samping kiri.
+  - "l" untuk menambah kecepatan ketika memutar ke kanan.
+  - "j" untuk menambah kecepatan ketika memutar ke kiri.
+  - "k" untuk mengembalikan semua nilai kecepatan menjadi 0.
+  - "8" untuk berhenti.
 
 - Jika pergerakan robot ketika jalan kurang stabil, anda bisa mengubah nilai parameter yang ada di beberapa file diantaranya:
   
