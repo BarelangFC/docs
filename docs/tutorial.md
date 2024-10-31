@@ -114,7 +114,40 @@ TODO: Dimas
 
 ## 3. Tutorial Kalibrasi Kamera
 
-TODO: Dani
+Kalibrasi kamera pada kamera logitech c930:
+- Pastikan device telah terinstall ros2 foxy, usb_cam ros2 foxy, dan rqt.
+![alt text](<images/Screenshot from 2024-10-29 18-46-26.png>)
+- Jika anda memiliki device dengan spesifikasi berbeda, maka diperlukan penyesuaian lebih lanjut
+- Kemudian anda install package ros2 foxy untuk kalibrasi kamera dengan command
+```bash
+sudo apt install ros-foxy-camera-calibration
+```
+- Buka terminal anda, saya sarankan anda menggunakan terminator sebagai terminal anda
+- Di terminal anda buat menjadi dua tab, kemudian di tab pertama anda masukkan command
+```bash
+ros2 run usb_camera usb_camera_node_exe --ros-args --params-file /home/alamat_file_config.yaml 
+```
+- Di terminal kedua masukkan command
+```bash
+ros2 run camera_calibration cameracalibrator --size 7x11 --square 0.030 --ros-args -r image:=/camera/image
+```
+- Perlu diketahui bahwa ukuran chessboard menentukan parameter kalibrasi kamera
+- Penetuan ukuran adalah sebagai berikut
+![alt text](<images/WhatsApp Image 2024-10-31 at 16.55.23.jpeg>)
+Kita harus menghitung sudut kotak hitam dari sisi lebar dan panjang, pada gambar sisi panjang memiliki 11 sudut, sedangkan sudut lebar adalah 7. Untuk ukuran kotak adalah 30 milimeter sehingga penulisan adalah 0.03. Pastikan anda memanggil topic gambar pada kamera.
+- Jika sudah berhasil maka tampilannya akan seperti ini
+![alt text](<images/Screenshot from 2024-10-29 19-29-37.png>)
+- Anda harus mengambil kalibrasi minimal sampai tombol calibrate bisa ditekan
+![alt text](<images/Screenshot from 2024-10-29 19-30-51.png>)
+- Selanjutnya anda tekan calibrate dan hasilnya bisa anda lihat di terminal kamera kalibrasi
+![alt text](<images/Screenshot from 2024-10-29 19-31-21.png>)
+- Selanjutnya anda save dengan menekan tobol save di GUI kamera kalibrasi
+- Alamat save hasil kalibrasi berada di /tmp/
+![alt text](<images/Screenshot from 2024-10-29 19-48-19.png>)
+- Folder kamera kalibrasi terdapat foto kalibrasi, file ost.txt, dan file ost.yaml. File yang paling penting adalah file yaml karena berisi parameter kamera hasil kalibrasi
+![alt text](<images/Screenshot from 2024-10-29 19-49-42.png>)
+
+selesai sampai disini
 
 ## 4. Tutorial Kalibrasi Odometry
 
