@@ -131,7 +131,7 @@ ros2 run usb_camera usb_camera_node_exe --ros-args --params-file /home/alamat_fi
 ```
 - Di terminal kedua masukkan command
 ```bash
-ros2 run camera_calibration cameracalibrator --size 7x11 --square 0.030 --ros-args -r image:=/camera/image
+ros2 run camera_calibration cameracalibrator --size 7x11 --square 0.030 --ros-args -r image:=/image_raw
 ```
 - Perlu diketahui bahwa ukuran chessboard menentukan parameter kalibrasi kamera
 - Penetuan ukuran adalah sebagai berikut
