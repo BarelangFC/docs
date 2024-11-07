@@ -127,7 +127,7 @@ sudo apt install ros-foxy-camera-calibration
 - Buka terminal anda, saya sarankan anda menggunakan terminator sebagai terminal anda
 - Di terminal anda buat menjadi dua tab, kemudian di tab pertama anda masukkan command
 ```bash
-ros2 run usb_camera usb_camera_node_exe --ros-args --params-file /home/alamat_file_config.yaml 
+ros2 run usb_camera usb_camera_node_exe --ros-args --params-file /home/barelangfc/bfc_ros2/src/usb_cam/config/params_1.yaml 
 ```
 - Di terminal kedua masukkan command
 ```bash
