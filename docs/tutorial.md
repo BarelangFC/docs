@@ -114,8 +114,10 @@ TODO: Dimas
 
 ## 3. Tutorial Kalibrasi Kamera
 
-Kalibrasi kamera pada kamera logitech c930:
-- Pastikan device telah terinstall ros2 foxy, usb_cam ros2 foxy, dan rqt.
+Kalibrasi kamera pada kamera logitech c930 dan kamera eCons see3cam:
+
+- Pastikan device telah terinstall ros2 foxy, usb_cam ros2 foxy rqt, dan image pipeline.
+  
 ![alt text](<images/Screenshot from 2024-10-29 18-46-26.png>)
 - Jika anda memiliki device dengan spesifikasi berbeda, maka diperlukan penyesuaian lebih lanjut
 - Kemudian anda install package ros2 foxy untuk kalibrasi kamera dengan command
@@ -146,6 +148,7 @@ Kita harus menghitung sudut kotak hitam dari sisi lebar dan panjang, pada gambar
 ![alt text](<images/Screenshot from 2024-10-29 19-48-19.png>)
 - Folder kamera kalibrasi terdapat foto kalibrasi, file ost.txt, dan file ost.yaml. File yang paling penting adalah file yaml karena berisi parameter kamera hasil kalibrasi
 ![alt text](<images/Screenshot from 2024-10-29 19-49-42.png>)
+- Untuk kamera econs memiliki cara kalibrasi yang persis dengan kalibrasi kamera logitech. Akan tetapi, anda harus membuka image pipeline di terminal yang sama ketika anda sedang membuka usb cam. Hal tersebut terjadi agar usb cam bisa menerapkan konfigurasi hasil kalibrasi yang telah kita lakukan. 
 
 selesai sampai disini
 
