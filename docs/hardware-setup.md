@@ -156,6 +156,9 @@ Source: https://jetsonhacks.com/nvidia-jetson-xavier-nx-gpio-header-pinout/
 ### Pinout OpenCr
 ![alt text](./images/opencr_pinout.png)
 
+### Jetson Wiring Connections
+![alt text](images/Jetson-NX-wiring.png)
+
 ### OpenCr Wiring Connections
 ![alt text](./images/opencr_wiring.png)
 
