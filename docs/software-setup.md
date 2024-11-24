@@ -141,7 +141,7 @@ Install Packages
 
 ```bash
 sudo apt-get install libncurses5-dev screen
-sudo apt-get install build-essential wget subversion cmake swig libreadline6-dev g++ lua5.1
+sudo apt-get install build-essential wget subversion cmake swig libreadline6-dev g++ lua5.1 libboost-all-dev 
 ```
 
 Install Boost
@@ -150,10 +150,10 @@ Install Boost
 sudo apt update
 mkdir BarelangFc_Library && cd BarelangFc_Library
 wget https://archives.boost.io/release/1.85.0/source/boost_1_85_0.tar.gz
-tar -xvf boost_1_85_0.tar.gz
-sudo mv boost_1_85_0 /usr/local/
+tar -xvf boost_1_86_0.tar.gz
+sudo mv boost_1_86_0 /usr/local/
 cd /usr/local/include
-sudo ln -s /usr/local/boost_1_47_0/boost boost 
+sudo ln -s /usr/local/boost_1_86_0/boost boost 
 cd –
 ```
 
