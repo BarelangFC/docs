@@ -355,3 +355,66 @@ cmake --build build
 ```
 
 Masukkan dua folder ini ke workspace ROS2 anda dan compile dengan colcon build
+
+
+#
+## Radxa 5B+ - ubuntu 22.04
+### 1. Pesiapan alat untuk instalasi ubuntu 22.04
+    a. SSD NVME M.2 128 Gb
+    b. M.2 SSD Enclosure
+    c. Monitor dengan port HDMI
+    d. Mouse dan keyboard
+
+### 2. Download ubuntu 22.04 imager 
+Download ubuntu 22.04 imager khusus rockchip RK3588 pada [github joshua ubuntu rockchip](https://github.com/Joshua-Riek/ubuntu-rockchip) atau melalui link dibawah ini
+```
+https://github.com/Joshua-Riek/ubuntu-rockchip/releases/download/v2.4.0/ubuntu-22.04-preinstalled-desktop-arm64-rock-5b.img.xz
+```
+lalu extrak ubuntu 22.04 imager tersebut sehingga menjadi file ```.img```
+### 3. Booteble ubuntu 22.04
+Persiapkan enclosure beserta ssd yang ingin di install ubuntu 22.04 lalu hubungkan ke laptop.
+Download [balena etcher](https://etcher.balena.io/) dan jalankan.
+Berikut merupakan tampilan awal balena ether:
+![balena ether](images/balenaether.png)
+###
+klik ```flash from file``` dan pilih ubuntu 22.04 imager yang telah di extrak sebelumnya dan klik open.
+![balena etcher](images/selectimager.png)
+###
+klik ```select target``` untuk memilih storage yang ingin digunakan, pilihakan ssd yang sudah disiapkan dengan enclosure sebelumnya:
+![balena ether](images/resultselect.png)
+![balena ether](images/selectstorage.png)
+###
+Klik ```flash``` untuk membuat booteble dan tunggu prosesnya hingga selesai.
+![balena ether](images/flash.png)
+
+###
+setelah proses booteble selesai, pasang ssd pada radxa 5B+ lalu lakukan setup ubuntu seperti proses intalasi biasanya.
+
+### 3. Instalasi dependencies package dan setup overlays
+
+Update system sebelum melakukan install package dan dependencies
+
+```
+sudo apt update && sudo apt upgrade -y
+```
+Install Python PIP
+
+```
+sudo apt install python3-pip
+```
+Aktifkan settingan hardware overlays uart dan i2c dengan cara mengedit file ```/etc/default/u-boot```
+```
+sudo nano /etc/default/u-boot
+```
+cari ```U_BOOT_FDT_OVERLAYS=""``` hilangkan tanda ```#``` dan tambahkan perintah berikut untuk mengaktifkan uart7 dan i2c3:
+```
+U_BOOT_FDT_OVERLAYS="device-tree/rockchip/overlay/rk3588-i2c3-m1.dtbo device-tree/rockchip/overlay/rk3588-uart7-m1.dtbo" 
+```
+Update u-boot
+```
+sudo u-boot-update
+```
+Reboot Radxa
+```
+reboot
+```
