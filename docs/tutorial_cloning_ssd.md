@@ -1,8 +1,3 @@
----
-layout: default
-title: "Tutorial Cloning SSD pada Robot"
----
-
 # Tutorial Cloning SSD pada Robot dengan NVDIA Jetson Xavier NX
 
 Tutorial ini akan membimbing untuk menggandakan (clone) SSD pada robot berbasis **NVIDIA Jetson Xavier NX** dengan menggunakan perintah `dd` di Linux. Proses ini akan membuat salinan persis dari sistem, termasuk OS, konfigurasi, dan seluruh datanya.
