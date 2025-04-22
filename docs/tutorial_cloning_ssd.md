@@ -47,6 +47,7 @@ Penjelasan:
 - `status=progress` menampilkan progres
 
 Tampilan saat proses berlangsung:
+
 ![Menjalankan perintah dd](images/sudodd.png)
 
 Proses ini bisa memakan waktu tergantung kapasitas SSD.
@@ -62,6 +63,7 @@ Proses ini bisa memakan waktu tergantung kapasitas SSD.
    ```
 
    Ini memastikan semua data benar-benar tertulis ke SSD.
+   
    ![Sinkronisasi selesai](images/sync.png)
 
 2. Lakukan shutdown:
