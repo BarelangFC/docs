@@ -12,18 +12,26 @@ Tutorial ini akan membimbing untuk menggandakan (clone) SSD pada robot berbasis 
 ## Langkah 1: Siapkan SSD Tujuan
 
 1. Sambungkan SSD tujuan ke Jetson. Kamu bisa menggunakan **enclosure USB-to-SATA**.
+    Sebelum SSD terdeteksi:
+   ![Deteksi SSD](images/sebelum%20ssd%20tujuan%20terpasang.png)
+
+   Setelah SSD terdeteksi:
+   ![Deteksi SSD](images/sesudah%20ssd%20tujuan%20terpasang.png)
+
 2. Cek apakah SSD tujuan sudah terbaca sistem dengan perintah:
 
    ```bash
    lsblk
    ```
+   ![lsbk](images/lsbk.png)
    atau
 
    ```bash
    sudo fdisk -l
    ```
+   ![fdisk](images/fdisk.png)
 
-3. Catat path dari SSD **sumber** dan **tujuan**, contohnya:
+1. Catat path dari SSD **sumber** dan **tujuan**, contohnya:
    - SSD sumber: `/dev/sda`
    - SSD tujuan: `/dev/sdb`
 
@@ -42,7 +50,10 @@ Penjelasan:
 - `of=` adalah SSD tujuan (output)
 - `bs=4M` untuk blok data 4MB
 - `status=progress` menampilkan progres
-- 
+
+Tampilan saat proses berlangsung:
+![Menjalankan perintah dd](images/sudodd.png)
+
 Proses ini bisa memakan waktu tergantung kapasitas SSD.
 
 ---
@@ -56,11 +67,15 @@ Proses ini bisa memakan waktu tergantung kapasitas SSD.
    ```
 
    Ini memastikan semua data benar-benar tertulis ke SSD.
+   ![Sinkronisasi selesai](images/sync.png)
+
 2. Lakukan shutdown:
 
    ```bash
    poweroff
    ```
+   ![Sinkronisasi selesai](images/poweroff.png)
+
 
 3. Cabut SSD sumber, lalu nyalakan Jetson. Perangkat akan boot otomatis dari SSD tujuan yang telah dikloning.
 
@@ -76,8 +91,8 @@ Proses ini bisa memakan waktu tergantung kapasitas SSD.
 
 ## Referensi Tambahan
 
-- 📌 [Backup Linux dengan dd - GitHub](https://github.com/blackyboy/RedHat-Centos-Common-Stuffs/blob/master/6-Examples-to-Backup-Linux-Using-dd-Command-Including-Disk-to-Disk.md)  
-- 📌 [Disk Cloning dengan dd - ServerFault](https://serverfault.com/questions/4906/using-dd-for-disk-cloning)
+ 📌 [Backup Linux dengan dd - GitHub](https://github.com/blackyboy/RedHat-Centos-Common-Stuffs/blob/master/6-Examples-to-Backup-Linux-Using-dd-Command-Including-Disk-to-Disk.md)  
+ 📌 [Disk Cloning dengan dd - ServerFault](https://serverfault.com/questions/4906/using-dd-for-disk-cloning)
 
 ---
 
